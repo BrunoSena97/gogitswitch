@@ -1,4 +1,4 @@
-# Git Credential Switcher
+# Go Git Switch
 
 This script allows you to switch between different GitLab and GitHub accounts by updating the Git credentials dynamically. It reads credentials from an environment file and sets them using the `git credential approve` command.
 
