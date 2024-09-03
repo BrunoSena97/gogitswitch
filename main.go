@@ -12,12 +12,12 @@ import (
 )
 
 func main() {
-	// Locate the .env file in the user's home directory
+	//get homedir path
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
 		log.Fatal("Error finding the user's home directory")
 	}
-
+	//define envpath
 	envPath := filepath.Join(homeDir, "gitswitch/.env")
 
 	// Load the .env file
@@ -42,7 +42,7 @@ func main() {
 	// Remove quotes if present
 	creds = strings.Trim(creds, `"`)
 
-	// Assuming the format is username:password
+	// split username and password
 	credsArray := strings.Split(creds, ":")
 	if len(credsArray) != 2 {
 		log.Fatal("Credentials format is invalid. It should be username:password")
@@ -51,7 +51,7 @@ func main() {
 	username := credsArray[0]
 	password := credsArray[1]
 
-	// Determine the host based on the service
+	// Set the host based on the service
 	var host string
 	switch service {
 	case "gitlab":
